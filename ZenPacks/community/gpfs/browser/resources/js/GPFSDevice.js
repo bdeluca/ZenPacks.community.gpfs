@@ -28,6 +28,11 @@ ZC.registerName(
     _t('GPFS Stgpools'),
     _t('GPFS Stgpools'));
 
+ZC.registerName(
+    'GPFSDiskMonitor',
+    _t('GPFS Disks'),
+    _t('GPFS Disks'));
+
 
 
 ZC.GPFSFileSystemMonitorPanel = Ext.extend(ZC.ComponentGridPanel, {
@@ -90,7 +95,93 @@ ZC.GPFSFileSystemMonitorPanel = Ext.extend(ZC.ComponentGridPanel, {
     }
 });
 
+
+
+ZC.GPFSDiskMonitorPanel = Ext.extend(ZC.ComponentGridPanel, {
+    constructor: function(config) {
+        config = Ext.applyIf(config||{}, {
+            componentType: 'GPFSDiskMonitor',
+            autoExpandColumn: 'name',
+            sortInfo: {
+                field: 'name',
+                direction: 'ASC'
+            },
+            fields: [
+                {name: 'uid'},
+                {name: 'name'},
+                {name: 'status'},
+                {name: 'severity'},
+                {name: 'usesMonitorAttribute'},
+                {name: 'monitor'},
+                {name: 'monitored'},
+                {name: 'locking'},
+                {name: 'gpfsDiskFSName'},
+                {name: 'gpfsDiskStgPoolName'},
+                {name: 'gpfsDiskMetadata'},
+                {name: 'gpfsDiskData'},
+
+        
+            ],
+            columns: [{
+                id: 'severity',
+                dataIndex: 'severity',
+                header: _t('Events'),
+                renderer: Zenoss.render.severity,
+                sortable: true,
+                width: 50
+            },{
+                id: 'name',
+                dataIndex: 'name',
+                header: _t('Disk name'),
+                sortable: true
+            },{
+                id: 'gpfsDiskFSName',
+                dataIndex: 'gpfsDiskFSName',
+                header: _t('File System'),
+                sortable: true,
+                width: 120
+             },{
+                id: 'gpfsDiskStgPoolName',
+                dataIndex: 'gpfsDiskStgPoolName',
+                header: _t('Storage Pool'),
+                sortable: true,
+                width: 120
+            },{
+                id: 'gpfsDiskMetadata',
+                dataIndex: 'gpfsDiskMetadata',
+                header: _t('Has Metadata'),
+                sortable: true,
+                width: 120
+             },{
+                id: 'fgpfsDiskData',
+                dataIndex: 'gpfsDiskData',
+                header: _t('Has Data'),
+                sortable: true,
+                width: 120              
+            },{
+                id: 'monitored',
+                dataIndex: 'monitored',
+                header: _t('Monitored'),
+                renderer: Zenoss.render.checkbox,
+                sortable: true,
+                width: 70
+            },{
+                id: 'locking',
+                dataIndex: 'locking',
+                header: _t('Locking'),
+                renderer: Zenoss.render.locking_icons,
+                width: 65
+            }]
+        });
+
+        ZC.GPFSDiskMonitorPanel.superclass.constructor.call(
+            this, config);
+    }
+});
+
+
 Ext.reg('GPFSFileSystemMonitorPanel', ZC.GPFSFileSystemMonitorPanel);
+Ext.reg('GPFSDiskMonitorPanel', ZC.GPFSDiskMonitorPanel);
 
 
 

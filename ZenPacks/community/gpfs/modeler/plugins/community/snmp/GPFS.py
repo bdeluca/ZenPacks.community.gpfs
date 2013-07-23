@@ -115,10 +115,10 @@ class GPFS(SnmpPlugin):
                 }))
 
         
-        #rms.append(RelationshipMap(
-        #     relname="disk_monitors",
-        #     modname='ZenPacks.community.gpfs.DiskMonitor',
-        #     objmaps=objs))
+        rms.append(RelationshipMap(
+             relname="disk_monitors",
+             modname='ZenPacks.community.gpfs.DiskMonitor',
+             objmaps=objs))
         
 
         objs = []

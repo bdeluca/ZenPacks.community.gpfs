@@ -43,10 +43,10 @@ class GPFSStgPoolInfo(ComponentInfo):
 
 class GPFSDiskInfo(ComponentInfo):
     implements(IGPFSDiskMonitorInfo)
-    gpfsDiskFSName = ProxyProperty('fs_name')
-    gpfsDiskStgPoolName = ProxyProperty('stgpool_name')
-    gpfsDiskMetadata = ProxyProperty('has_metadata')
-    gpfsDiskData = ProxyProperty('has_data')
+    gpfsDiskFSName = ProxyProperty('gpfsDiskFSName')
+    gpfsDiskStgPoolName = ProxyProperty('gpfsDiskStgPoolName')
+    gpfsDiskMetadata = ProxyProperty('gpfsDiskMetadata')
+    gpfsDiskData = ProxyProperty('gpfsDiskData')
 
 
 # class ExampleComponentInfo(ComponentInfo):
