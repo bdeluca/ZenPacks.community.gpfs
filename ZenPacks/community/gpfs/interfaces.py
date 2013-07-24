@@ -57,6 +57,15 @@ class IGPFSDiskMonitorInfo(IComponentInfo):
     gpfsDiskData = schema.TextLine(title=_t('has disk data'))
  
 
+class IGPFSNodeMonitorInfo(IComponentInfo):
+    gpfsNodeType = schema.TextLine(title=_t('gpfsNodeType'))
+    gpfsNodeAdmin = schema.TextLine(title=_t('gpfsNodeAdmin'))
+    gpfsNodeVersion = schema.TextLine(title=_t('gpfsNodeVersion'))
+    
+
+   
+
+
 #class IExampleComponentInfo(IComponentInfo):
 #    attributeOne = schema.Int(title=_t(u"Attribute #1"))
 #    attributeTwo = SingleLineText(title=_t(u"Attribute #2"))

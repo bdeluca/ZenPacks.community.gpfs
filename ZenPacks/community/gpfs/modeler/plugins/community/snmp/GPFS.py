@@ -66,6 +66,22 @@ class GPFS(SnmpPlugin):
                 }
             ),
 
+        GetTableMap(
+            'node_status_table', '.1.3.6.1.4.1.2.6.212.1.4.1', {
+                '.1': 'gpfsNodeName',
+                '.9': 'gpfsNodeVersion',
+               
+                }
+            ),
+
+        GetTableMap(
+            'node_config_table', '.1.3.6.1.4.1.2.6.212.1.5.1', {
+                '.1': 'gpfsNodeName',
+                '.2': 'gpfsNodeType',
+                '.3': 'gpfsNodeAdmin',
+               
+                }
+            ),
         )
 
     def process(self, device, results, log):
@@ -74,6 +90,8 @@ class GPFS(SnmpPlugin):
         filesystem_table = results[1].get('filesystem_table', {})
         stgpool_table = results[1].get('stgpool_table', {})
         disk_config_table = results[1].get('disk_config_table', {})
+        node_status_table = results[1].get('node_status_table', {})
+        node_config_table = results[1].get('node_config_table', {})
         
         rms = []
         
@@ -139,7 +157,27 @@ class GPFS(SnmpPlugin):
              relname="filesystem_monitors",
              modname='ZenPacks.community.gpfs.FileSystemMonitor',
              objmaps=objs))
+
+        objs = []
+        for snmpindex, row in node_status_table.items():
+            name = row.get('gpfsNodeName')
+            print row.get('gpfsNodeVersion')
+            if not name:
+                log.warn('skipping node sensor with no name')
+                continue
+            objs.append(ObjectMap({
+                'id': self.prepId(name),
+                'title': name,
+                'snmpindex': snmpindex.strip('.'),
+                'gpfsNodeVersion': row.get('gpfsNodeVersion'),
+                #'port': row.get('tempSensorPortId'),
+                }))
+        rms.append(RelationshipMap(
+             relname="node_monitors",
+             modname='ZenPacks.community.gpfs.NodeMonitor',
+             objmaps=objs))
         
-        #print rms
+        #for x in  rms:
+        #    print x
         return rms
 

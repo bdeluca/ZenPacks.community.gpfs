@@ -19,6 +19,7 @@ from ZenPacks.community.gpfs.interfaces import (INetGPFSDeviceInfo,
                                                 IGPFSFileSystemMonitorInfo,
                                                 IGPFSStgPoolMonitorInfo,
                                                 IGPFSDiskMonitorInfo,
+                                                IGPFSNodeMonitorInfo,
                                                 )
 
 
@@ -47,6 +48,16 @@ class GPFSDiskInfo(ComponentInfo):
     gpfsDiskStgPoolName = ProxyProperty('gpfsDiskStgPoolName')
     gpfsDiskMetadata = ProxyProperty('gpfsDiskMetadata')
     gpfsDiskData = ProxyProperty('gpfsDiskData')
+
+
+class GPFSNodeInfo(ComponentInfo):
+    implements(IGPFSNodeMonitorInfo)
+    gpfsNodeType = ProxyProperty('gpfsNodeType')
+    gpfsNodeAdmin = ProxyProperty('gpfsNodeAdmin')
+    gpfsNodeVersion = ProxyProperty('gpfsNodeVersion')
+    
+
+   
 
 
 # class ExampleComponentInfo(ComponentInfo):

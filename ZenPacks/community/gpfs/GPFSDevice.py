@@ -28,6 +28,10 @@ class GPFSDevice(Device):
                 'ZenPacks.community.gpfs.DiskMonitor',
                 'disk_monitor',
                 )),
+            ('node_monitors', ToManyCont(ToOne,
+                'ZenPacks.community.gpfs.NodeMonitor',
+                'node_monitor',
+                )),
 
 
              )
