@@ -36,8 +36,8 @@ ZC.registerName(
 
 ZC.registerName(
     'GPFSNodeMonitor',
-    _t('GPFS Nodes'),
-    _t('GPFS Nodes'));
+    _t('GPFSNodeMonitor'),
+    _t('GPFSNodeMonitor'));
 
 
 ZC.GPFSFileSystemMonitorPanel = Ext.extend(ZC.ComponentGridPanel, {

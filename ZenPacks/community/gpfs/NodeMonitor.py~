@@ -38,7 +38,7 @@ class NodeMonitor(DeviceComponent, ManagedEntity):
         {'id': 'gpfsNodeType', 'type': 'string'},
         {'id': 'gpfsNodeAdmin', 'type': 'string'},
         {'id': 'gpfsNodeVersion', 'type': 'string'},
-        
+        {'id': 'gpfsNodeType', 'type': 'string'},
         )
 
   

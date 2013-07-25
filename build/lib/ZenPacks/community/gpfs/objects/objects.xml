@@ -8,6 +8,12 @@ False
 <property visible="True" type="lines" id="zDeviceTemplates" >
 ['GPFS']
 </property>
+<property visible="True" type="string" id="zPythonClass" >
+ZenPacks.community.gpfs.GPFSDevice
+</property>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.NewDeviceMap', 'zenoss.snmp.DeviceMap', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.IpServiceMap', 'zenoss.snmp.HRFileSystemMap', 'zenoss.snmp.HRSWRunMap', 'zenoss.snmp.CpuMap', 'community.snmp.GPFS']
+</property>
 <tomanycont id='rrdTemplates'>
 <object id='GPFS' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
 <property id='zendoc' type='string'>
@@ -496,6 +502,21 @@ AVERAGE
 </tomanycont>
 </object>
 </tomanycont>
+</object>
+<object id='GPFSDiskMonitor' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.Device
+</property>
+</object>
+<object id='GPFSNodeMonitor' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.Device
+</property>
+</object>
+<object id='GPFSStgPoolMonitor' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.Device
+</property>
 </object>
 </tomanycont>
 </object>
