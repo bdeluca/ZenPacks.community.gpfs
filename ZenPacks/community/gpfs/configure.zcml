@@ -24,5 +24,11 @@
         for=".DiskMonitor.DiskMonitor"
         factory=".info.GPFSDiskInfo"
         />
+        
+    <adapter
+        provides=".interfaces.IGPFSNodeMonitorInfo"
+        for=".NodeMonitor.NodeMonitor"
+        factory=".info.GPFSNodeInfo"
+        />
     <include package=".browser"/>
 </configure>

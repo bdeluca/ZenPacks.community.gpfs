@@ -37,6 +37,7 @@ ZenPacks/community/gpfs/__init__.pyo
 ZenPacks/community/gpfs/analytics.py
 ZenPacks/community/gpfs/configure.zcml
 ZenPacks/community/gpfs/configure.zcml.example
+ZenPacks/community/gpfs/configure.zcml~
 ZenPacks/community/gpfs/dynamicview.py
 ZenPacks/community/gpfs/events.py
 ZenPacks/community/gpfs/events.pyo
